@@ -64,6 +64,16 @@
       <div class="col-12">
         <div class="ListaTelefonica" ng-controller="ListaTelefonicaCtrl">
           <h3 ng-bind="app"></h3>
+          <table>
+            <tr>
+              <th>Nome</th>
+              <th>Telefone</th>
+            </tr>
+            <tr ng-repeat="c in contatos">
+              <td>{{c.nome}}</td>
+              <td>{{c.telefone}}</td>
+            </tr>
+          </table>
         </div>
       </div>
     </div>
