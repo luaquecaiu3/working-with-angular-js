@@ -1,0 +1,45 @@
+/* ----------- CSS padrão criado por Patrick ----------- */
+body { text-align:center; -webkit-font-smoothing: antialiased; -webkit-overflow-scrolling: touch; -webkit-font-smoothing: antialiased; -webkit-text-size-adjust: 100%; }
+img, img a { border:none; }
+img.inv{  filter: alpha(opacity=100); opacity: 1; }
+img.inv:hover {  filter: alpha(opacity=70); opacity: 0.7; }
+a { text-decoration:none; border:none; }
+a:hover { text-decoration: none; }
+.clear { clear:both; }
+.transition { transition:all 0.1s linear; -webkit-transition:all 0.1s linear; -o-transition:all 0.1s linear; -moz-transition:all 0.1s linear; }
+.textright { text-align: right !important; }
+.textleft { text-align: left !important; }
+.textcenter { text-align: center !important; }
+.textjustify { text-align: justify !important; }
+.nopadding { padding:0px !important; }
+.nomargin { margin:0px !important; }
+.opacidade { opacity:0.6; filter: alpha(opacity=60); }
+.marginauto { margin:0 auto; }
+.floatleft { float:left !important; }
+.floatright { float:right !important; }
+.nofloat { float:none !important; }
+.responsive { width:100%; height:auto; }
+input{
+   all: unset;
+}
+/* ----------- heights ------------ */
+.height300 { height:300px; } .height200 { height:200px; } .height180 { height:180px; } .height160 { height:160px; } .height140 { height:140px; } .height120 { height:120px; } .height100 { height:100px; } .height90 { height:90px; } .height80 { height:80px; } .height70 { height:70px; } .height60 { height:60px; } .height50 { height:50px; } .height40 { height:40px; } .height30 { height:30px; } .height25 { height:25px; } .height20 { height:20px; } .height15 { height:15px; } .height10 { height:10px; } .height5 { height:5px; }
+
+/* ----------- paddings ----------*/
+.padding5 { padding:5px; } .padding10 { padding:10px; } .padding15 { padding:15px; } .padding20 { padding:20px; }
+
+/* ------- seleção de conteudo ------- */
+::selection { background: #aaaaaa; color:#FFF; /* All */ }
+::-moz-selection { background: #aaaaaa; color:#FFF; /* Firefox */ }
+
+/* ------- barra de rolagem ------- */
+::-webkit-scrollbar { width: 9px;  }/* for vertical scrollbars */
+::-webkit-scrollbar-track { background: rgba(0, 0, 0, 0.1);   }
+::-webkit-scrollbar-thumb { border-radius:10px; -moz-border-radius:10px; -webkit-border-radius:10px; }
+::-webkit-scrollbar-thumb { background:#333333; }
+
+/* -- placeholders / inputs de texto -- */
+::-webkit-input-placeholder { color:gray; font: 300 13px 'Open Sans', Arial; }
+::-moz-placeholder { color:gray; font: 300 13px 'Open Sans', Arial; line-height:20px; }
+:-ms-input-placeholder { color:gray; font: 300 13px 'Open Sans', Arial; }
+input:-moz-placeholder { color:gray; font: 300 13px 'Open Sans', Arial; }
