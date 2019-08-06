@@ -12,13 +12,17 @@ angular.module("ListaTelefonica").controller("ListaTelefonicaCtrl", function($sc
       nome: "Lua",
       telefone: "1293456-7890"
     },
-      {
-        nome: "Patrick",
-        telefone: "1293456-7890"
-      },
-        {
-          nome: "Ana",
-          telefone: "1293456-7890"
-        }
-  ]
+    {
+      nome: "Patrick",
+      telefone: "1293456-7890"
+    },
+    {
+      nome: "Ana",
+      telefone: "1293456-7890"
+    }
+  ];
+
+  $scope.adicionarContato = function(){
+    $scope.contatos.push({nome: $scope.nome, telefone: $scope.telefone});
+  };
 });

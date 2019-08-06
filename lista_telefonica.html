@@ -63,17 +63,24 @@
     <div class="row">
       <div class="col-12">
         <div class="ListaTelefonica" ng-controller="ListaTelefonicaCtrl">
-          <h3 ng-bind="app"></h3>
-          <table>
+          <h3 ng-bind="app"></h3><!--bind = imprime valores do scope-->
+          <table class="table table-striped">
             <tr>
               <th>Nome</th>
               <th>Telefone</th>
             </tr>
             <tr ng-repeat="c in contatos">
-              <td>{{c.nome}}</td>
-              <td>{{c.telefone}}</td>
+            <!--  <td>{{c.nome}}</td>
+              <td>{{c.telefone}}</td> -->
+              <td ng-repeat="(key, value) in c">
+                {{value}}
+              </td>
             </tr>
           </table>
+          <br>
+          <input placeholder="Nome" class="form-control" type="text" name="nome" value="" ng-model="nome"><!--model = define valores no scope-->
+          <input placeholder="Telefone" class="form-control" type="text" name="telefone" value="" ng-model="telefone">
+          <button class="btn btn-primary btn-block" type="button" name="button" ng-click="adicionarContato()">adicionar Contato</button>
         </div>
       </div>
     </div>
