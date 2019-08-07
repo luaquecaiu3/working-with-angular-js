@@ -7,6 +7,8 @@ angular.module("helloWorld").controller("helloWorldCtrl", function($scope){
 angular.module("ListaTelefonica", []);
 angular.module("ListaTelefonica").controller("ListaTelefonicaCtrl", function($scope){
   $scope.app = "Lista Telefonica";
+
+
   $scope.contatos = [
     {
       nome: "Lua",
@@ -22,7 +24,15 @@ angular.module("ListaTelefonica").controller("ListaTelefonicaCtrl", function($sc
     }
   ];
 
-  $scope.adicionarContato = function(){
-    $scope.contatos.push({nome: $scope.nome, telefone: $scope.telefone});
+  $scope.operadoras = [
+    {      nome: "oi", codigo: 1    },
+      {      nome: "vivo", codigo: 2    },
+        {      nome: "claro", codigo: 3   },
+          {      nome: "tim", codigo: 4    },
+  ]
+
+  $scope.adicionarContato = function(contato){
+    $scope.contatos.push(angular.copy(contato));
+    delete $scope.contato;
   };
 });

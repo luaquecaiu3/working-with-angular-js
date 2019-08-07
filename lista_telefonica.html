@@ -69,24 +69,33 @@
               <th>Nome</th>
               <th>Telefone</th>
             </tr>
-            <tr ng-repeat="c in contatos">
+            <tr ng-repeat="contato in contatos">
             <!--  <td>{{c.nome}}</td>
               <td>{{c.telefone}}</td> -->
-              <td ng-repeat="(key, value) in c">
+              <td ng-repeat="(key, value) in contato">
                 {{value}}
               </td>
             </tr>
           </table>
+
           <br>
-          <input placeholder="Nome" class="form-control" type="text" name="nome" value="" ng-model="nome"><!--model = define valores no scope-->
-          <input placeholder="Telefone" class="form-control" type="text" name="telefone" value="" ng-model="telefone">
-          <button class="btn btn-primary btn-block" type="button" name="button" ng-click="adicionarContato()">adicionar Contato</button>
+
+          <input placeholder="Nome" class="form-control" type="text" name="nome" value="" ng-model="contato.nome"><!--model = define valores no scope-->
+          <input placeholder="Telefone" class="form-control" type="text" name="telefone" value="" ng-model="contato.telefone">
+
+          <select class="form-control operadoras" name="operadoras" ng-model="contato.operadora" ng-options="operadora.nome for operadora in operadoras">
+          </select>
+
+          <button class="btn btn-primary btn-block" type="button" name="button" ng-click="adicionarContato(contato)" ng-disabled="!contato.nome || !contato.telefone">adicionar Contato</button>
+
+          <br>
+
         </div>
       </div>
     </div>
   </div>
 
-  <div class="main footer">
+  <div class="main footer container-fluid maxwidth2 nopadding">
   footer
   </div>
 
