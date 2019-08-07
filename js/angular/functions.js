@@ -8,7 +8,6 @@ angular.module("ListaTelefonica", []);
 angular.module("ListaTelefonica").controller("ListaTelefonicaCtrl", function($scope){
   $scope.app = "Lista Telefonica";
 
-
   $scope.contatos = [
     {
       nome: "Lua",
@@ -42,6 +41,7 @@ angular.module("ListaTelefonica").controller("ListaTelefonicaCtrl", function($sc
   $scope.adicionarContato = function(contato){
     $scope.contatos.push(angular.copy(contato));
     delete $scope.contato;
+    $scope.contatoForm.$setPristine();
   };
 
   $scope.apagarContato = function(contatos){
@@ -57,5 +57,7 @@ angular.module("ListaTelefonica").controller("ListaTelefonicaCtrl", function($sc
       return contato.selecionado;
     });
   };
+
+
 
 });
