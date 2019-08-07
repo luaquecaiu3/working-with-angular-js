@@ -5,34 +5,47 @@ angular.module("helloWorld").controller("helloWorldCtrl", function($scope){
 });
 
 angular.module("ListaTelefonica", ["ngMessages"]);
-angular.module("ListaTelefonica").controller("ListaTelefonicaCtrl", function($scope){
+angular.module("ListaTelefonica").controller("ListaTelefonicaCtrl", function($scope, uppercaseFilter){
   $scope.app = "Lista Telefonica";
 
   $scope.contatos = [
     {
-      nome: "Lua",
+      nome: uppercaseFilter("Lua"),
       telefone: "1293456-7890",
+      data: new Date(),
+      operadora: {nome: "claro", codigo: 3   , categoria: 'celular'},
       cor: "blue"
     },
     {
       nome: "Patrick",
       telefone: "1293456-7890",
+      data: new Date(),
+      operadora: {nome: "tim", codigo: 4    , categoria: 'fixo'},
       cor: "red"
     },
     {
       nome: "Ana",
       telefone: "1293456-7890",
+      data: new Date(),
+      operadora: {nome: "oi", codigo: 1, categoria: 'celular'},
       cor: "yellow"
+    },
+    {
+      nome: "Elo",
+      telefone: "1293456-7890",
+      data: new Date(),
+      operadora: {nome: "tim", codigo: 4, categoria: 'fixo'},
+      cor: "pink"
     }
   ];
 
   $scope.operadoras = [
-    {      nome: "oi", codigo: 1, categoria: 'celular'    },
-    {      nome: "vivo", codigo: 2    , categoria: 'celular'},
-    {      nome: "claro", codigo: 3   , categoria: 'celular'},
-    {      nome: "tim", codigo: 4    , categoria: 'fixo'},
-    {      nome: "gvt", codigo: 5    , categoria: 'fixo'},
-    {      nome: "embratel", codigo:6    , categoria: 'fixo'}
+    {      nome: "oi", codigo: 1, categoria: 'celular', preco: 1},
+    {      nome: "vivo", codigo: 2    , categoria: 'celular', preco: 2},
+    {      nome: "claro", codigo: 3   , categoria: 'celular', preco: 2},
+    {      nome: "tim", codigo: 4    , categoria: 'fixo', preco: 5},
+    {      nome: "gvt", codigo: 5    , categoria: 'fixo', preco: 3},
+    {      nome: "embratel", codigo:6    , categoria: 'fixo', preco: 1}
   ];
 
   $scope.classe1 = "selecionado";
@@ -58,6 +71,16 @@ angular.module("ListaTelefonica").controller("ListaTelefonicaCtrl", function($sc
     });
   };
 
+  $scope.ordenarPor = function(campo){
+    $scope.criterioOrdem = campo;
+  /*  if($scope.direcaoOrdem == undefined){
+      $scope.direcaoOrdem = true;
+      $scope.direcaoOrdem = !$scope.direcaoOrdem;
+    }
+    else{*/
+    $scope.direcaoOrdem = !$scope.direcaoOrdem;
+  //}
+  };
 
 
 });
