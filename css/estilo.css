@@ -65,8 +65,13 @@ div{
   background-color: rgba(200,200,200,0.5);
 }
 
+.selecionado{
+  background-color: yellow;
+}
 
-
+.negrito{
+  font-weight: bold;
+}
 
 /* ======================================================= */
 /* -- CSS Responsivo -- */

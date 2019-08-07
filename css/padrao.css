@@ -20,7 +20,7 @@ a:hover { text-decoration: none; }
 .nofloat { float:none !important; }
 .responsive { width:100%; height:auto; }
 input{
-   all: unset;
+  /* all: unset;*/
 }
 /* ----------- heights ------------ */
 .height300 { height:300px; } .height200 { height:200px; } .height180 { height:180px; } .height160 { height:160px; } .height140 { height:140px; } .height120 { height:120px; } .height100 { height:100px; } .height90 { height:90px; } .height80 { height:80px; } .height70 { height:70px; } .height60 { height:60px; } .height50 { height:50px; } .height40 { height:40px; } .height30 { height:30px; } .height25 { height:25px; } .height20 { height:20px; } .height15 { height:15px; } .height10 { height:10px; } .height5 { height:5px; }
