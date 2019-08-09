@@ -43,10 +43,12 @@
 </head>
 <body ng-cloak ng-app="ListaTelefonica">
   <div ng-include="'header.html'"></div>
+
   <div class="main content container-fluid maxwidth2 nopadding">
     <div class="row">
       <div class="col-12">
         <div class="ListaTelefonica" ng-controller="ListaTelefonicaCtrl">
+
           <h3 ng-bind="app"></h3><!--bind = imprime valores do scope-->
           <input type="text" ng-model="criterioDeBusca" name="" class="form-control" value="" placeholder="Que nome você está buscando?">
           <table ng-if="contatos.length" class="table table-striped">
@@ -65,7 +67,7 @@
             <td>{{contato.telefone}}</td>
             <td>{{contato.operadora.nome | lowercase}}</td>
             <td>{{contato.data | date:"EEEE',' dd 'de' MMMM 'de' yyyy '-' hh:mm"}}</td>
-            <td> <div class="cor" style="height:10px" ng-style="{'background-color': contato.cor}">
+            <td> <div class="cor" style="height:10px" ng-style="{'background-color': contato.cor.nome}">
 
             </div> </td>
             <!--    <td ng-repeat="(key, value) in contato">
@@ -78,13 +80,19 @@
 
           <div class="form-group">
             <form name="contatoForm">
-
               <input ng-required="true" placeholder="Nome" class="form-control" type="text" name="nome" value="" ng-model="contato.nome" ng-minlength="10">
 
-              <input ng-required="true" placeholder="Telefone" class="form-control" type="text" name="telefone" value="" ng-model="contato.telefone" ng-pattern="/^\d{4,5}-\d{4}$/">
+              <input ng-required="true" placeholder="Telefone" class="form-control" type="text" name="telefone" ng-value="{{testes.telefone}}" ng-model="contato.telefone" ng-pattern="/^\d{4,5}-\d{4}$/">
 
               <select ng-required="true" class="form-control operadoras" name="operadoras" ng-model="contato.operadora" ng-options="'(' + (operadora.preco | currency) + ') ' + operadora.nome group by operadora.categoria for operadora in operadoras | orderBy:'nome'">
                 <option value="">Selecione uma operadora</option>
+              </select>
+
+
+            <!--  <input type="text" name="data" class="form-control data" ng-model="contato.data" ng-value="{{data}}"> -->
+
+              <select ng-required="true" ng-options="cor.nome group by cores.categoria for cor in cores | orderBy:'nome'" class="form-control cores" name="cores" ng-model="contato.cor">
+                <option value="">Selecione uma cor</option>
               </select>
 
             </form>
@@ -113,6 +121,10 @@
                 Por favor, selecione uma operadora.
               </div>
 
+              <div class="alert alert-danger" ng-if="contatoForm.cores.$invalid && contatoForm.cores.$dirty">
+                Por favor, selecione uma cor.
+              </div>
+
             <button class="btn btn-primary btn-block" type="button" name="addbutton" ng-click="adicionarContato(contato)" ng-disabled="contatoForm.$invalid">adicionar Contato</button>
 
             <button ng-if="isContatoSelecionado(contatos)" class="btn btn-danger btn-block" type="button" name="delbutton" ng-click="apagarContato(contatos)" ng-disabled="!isContatoSelecionado(contatos)">Apagar Contato</button>
@@ -125,9 +137,7 @@
     </div>
   </div>
 
-  <div ng-include="'footer.html'">
-
-  </div>
+  <div ng-include="'footer.html'"></div>
 
 
 

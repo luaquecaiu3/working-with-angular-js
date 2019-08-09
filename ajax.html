@@ -32,18 +32,38 @@
 <!-- jQuery -->
 <script src="js/jquery-2.2.4.min.js"></script>
 <!-- ========================================================= -->
-<title>Título</title>
+<title>AJAX</title>
 <meta name="description" content="Descrição da página"/>
 <!-- ========================================================= -->
 </head>
 <body>
+  <script>
+    var get = function(url, callback){
+      var xhr = new XMLHttpRequest();
+      xhr.onreadystatechange = function(){
+        if(xhr.readyState === 4){
+          callback(xhr.responseText, xhr.status);
+        }
+      };
+      xhr.open('GET', url);
+      xhr.send(null);
+    }
+
+    get('http://localhost:3412/contatos', function(data){
+      document.getElementById("ajax").innerHTML = data;
+    });
+  </script>
+
   <div ng-include="'header.html'"></div>
 
   <div class="main content container-fluid maxwidth2 nopadding">
     <div class="row">
       <div class="col-12">
         <div class="" ng-controller="">
-          {{}}
+          <h3>AJAX</h3>
+          <div class="ajax" id="ajax">
+
+          </div>
         </div>
       </div>
     </div>
