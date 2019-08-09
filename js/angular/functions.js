@@ -16,14 +16,14 @@ angular.module("ListaTelefonica").controller("ListaTelefonicaCtrl", function($sc
 
   $scope.cores = [];
 
+  function errorCallback(error){
+    $scope.app = "Error: " + error.status + " " + error.statusText;
+  };
+
   var carregarContatos = function () {
 
     function successCallback(response){
       $scope.contatos = response.data;
-    };
-
-    function errorCallback(error){
-      console.log(error);
     };
 
     $http.get("http://localhost:3412/contatos").then(successCallback, errorCallback);
@@ -35,10 +35,6 @@ angular.module("ListaTelefonica").controller("ListaTelefonicaCtrl", function($sc
       $scope.operadoras = response.data;
     };
 
-    function errorCallback(error){
-      console.log(error);
-    };
-
     $http.get("http://localhost:3412/operadoras").then(successCallback, errorCallback);
   };
 
@@ -46,10 +42,6 @@ angular.module("ListaTelefonica").controller("ListaTelefonicaCtrl", function($sc
 
     function successCallback(response){
       $scope.cores = response.data;
-    };
-
-    function errorCallback(error){
-      console.log(error);
     };
 
     $http.get("http://localhost:3412/cores").then(successCallback, errorCallback);
@@ -68,12 +60,6 @@ angular.module("ListaTelefonica").controller("ListaTelefonicaCtrl", function($sc
       carregarContatos();
     };
 
-    function errorCallback(error){
-      console.log(error);
-    };/*
-
-    $http.post("http://localhost:3412/contatos", contato).then(successCallback, errorCallback);
-    */
     $http.post('http://localhost:3412/contatos', contato).then(successCallback, errorCallback);
   };
 
