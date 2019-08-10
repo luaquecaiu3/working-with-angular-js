@@ -73,7 +73,7 @@ angular.module("ListaTelefonica").controller("ListaTelefonicaCtrl", function($sc
 
   $scope.isContatoSelecionado = function(contatos){
     return contatos.some(function (contato){
-    //  return contato.selecionado;
+      return contato.selecionado;
     });
   };
 

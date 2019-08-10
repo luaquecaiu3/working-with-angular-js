@@ -62,14 +62,12 @@
               <th><a href="#" ng-click="ordenarPor('cor')">Cor</a></th>
             </tr>
             <tr ng-repeat="contato in contatos | filter:{nome:criterioDeBusca} | orderBy:'nome':false | orderBy:criterioOrdem:direcaoOrdem" ng-class="{selecionado: contato.selecionado, negrito: contato.selecionado}">
-            <td> <input ng-model="contato.selecionado" type="checkbox" name="checkbox" value=""> </td>
+            <td><input ng-model="contato.selecionado" type="checkbox" id="checkbox" name="checkbox" value=""> </td>
             <td>{{contato.nome}}</td>
             <td>{{contato.telefone}}</td>
             <td>{{contato.operadora.nome | lowercase}}</td>
             <td>{{contato.data | date:"EEEE',' dd 'de' MMMM 'de' yyyy '-' hh:mm"}}</td>
-            <td> <div class="cor" style="height:10px" ng-style="{'background-color': contato.cor.nome}">
-
-            </div> </td>
+            <td><div class="cor" style="height:10px" ng-style="{'background-color': contato.cor.nome}"></div></td>
             <!--    <td ng-repeat="(key, value) in contato">
                 {{value}}
               </td> -->
