@@ -1,4 +1,4 @@
-angular.module("ListaTelefonica").controller("ListaTelefonicaCtrl", function($scope, $http){
+angular.module("ListaTelefonica").controller("ListaTelefonicaCtrl", function($scope, $http, contatosAPI, operadorasAPI,serialGenerator){
   $scope.app = "Lista Telefonica";
 
   $scope.data = new Date();
@@ -40,7 +40,7 @@ angular.module("ListaTelefonica").controller("ListaTelefonicaCtrl", function($sc
       $scope.contatos = response.data;
     };
 
-    $http.get("http://localhost:3412/contatos").then(successCallback, errorCallback);
+    contatosAPI.getContatos().then(successCallback, errorCallback);
   };
 
   var carregarOperadoras = function () {
@@ -49,7 +49,7 @@ angular.module("ListaTelefonica").controller("ListaTelefonicaCtrl", function($sc
       $scope.operadoras = response.data;
     };
 
-    $http.get("http://localhost:3412/operadoras").then(successCallback, errorCallback);
+    operadorasAPI.getOperadoras().then(successCallback, errorCallback);
   };
 
   var carregarCores = function () {
@@ -65,6 +65,7 @@ angular.module("ListaTelefonica").controller("ListaTelefonicaCtrl", function($sc
   $scope.classe2 = "negrito";
 
   $scope.adicionarContato = function(contato){
+    contato.serial = serialGenerator.generate();
     contato.data = new Date();
 
     function successCallback(response){
@@ -74,7 +75,7 @@ angular.module("ListaTelefonica").controller("ListaTelefonicaCtrl", function($sc
       carregarContatos();
     };
 
-    $http.post('http://localhost:3412/contatos', contato).then(successCallback, errorCallback);
+    contatosAPI.saveContato(contato).then(successCallback, errorCallback);
   };
 
   $scope.apagarContato = function(contatos){
