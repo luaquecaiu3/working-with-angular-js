@@ -1,6 +1,5 @@
 angular.module("ListaTelefonica").controller("ListaTelefonicaCtrl", function($scope, $http, contatosAPI, operadorasAPI,serialGenerator){
   $scope.app = "Lista Telefonica";
-  console.log("oi");
 
   $scope.data = new Date();
 
