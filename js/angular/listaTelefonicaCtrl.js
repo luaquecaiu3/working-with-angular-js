@@ -1,8 +1,10 @@
 angular.module("ListaTelefonica").controller("ListaTelefonicaCtrl", function($scope, $http){
-
   $scope.app = "Lista Telefonica";
 
   $scope.data = new Date();
+
+  $scope.header = "HEADER";
+  $scope.footer = "FOOTER";
 
   $scope.contatos = [];
 
@@ -11,7 +13,25 @@ angular.module("ListaTelefonica").controller("ListaTelefonicaCtrl", function($sc
   $scope.cores = [];
 
   function errorCallback(error){
-    $scope.app = "Error: " + error.status + " " + error.statusText;
+    $scope.app = error +  "Error: " + error.status + " " + error.statusText;
+  };
+
+  var carregarHeader = function () {
+
+    function successCallback(response){
+      $scope.header = response.data;
+    };
+
+    $http.get("http://localhost:3412/header").then(successCallback, errorCallback);
+  };
+
+  var carregarFooter = function () {
+
+    function successCallback(response){
+      $scope.footer = response.data;
+    };
+
+    $http.get("http://localhost:3412/footer").then(successCallback, errorCallback);
   };
 
   var carregarContatos = function () {
@@ -76,6 +96,8 @@ angular.module("ListaTelefonica").controller("ListaTelefonicaCtrl", function($sc
     $scope.direcaoOrdem = !$scope.direcaoOrdem;
   };
 
+  carregarHeader();
+  carregarFooter();
     carregarContatos();
     carregarOperadoras();
     carregarCores();

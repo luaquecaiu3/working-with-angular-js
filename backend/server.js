@@ -1,6 +1,29 @@
 var router = require('./router');
 
+/*fs = require('fs');
+
+app.get('/header', function(req, res){
+  if (req.url === '/header'){
+
+    res.writeHead(200, {'Content-Type': 'text/html'});
+    fs.readFile('./view/header.html', null, function(error, data) {
+        if (error) {
+            res.writeHead(404);
+            res.write('File not found!');
+        } else {
+            res.write(data);
+        }
+        res.end();
+    });
+  }
+
+});*/
+
 var app = router(3412);
+
+var header = '<div class="row"> <div class="col-sm-3"> <a href="../index.html">HOME</a> </div> <div class="col-sm-3"> <a href="../lista_telefonica.html">Lista Telefônica</a> </div> <div class="col-sm-3"> <a href="#">proximo</a> </div> <div class="col-sm-3"> <a href="#">link</a> </div> </div>';
+
+var footer = 'Criado por Lua Gomes.';
 
 var operadoras = [
   {nome: "oi",    codigo: 1, categoria: 'celular', preco: 1},
@@ -22,7 +45,18 @@ app.interceptor(function(req, res, next){
 
 app.interceptor(function(req, res, next){
   res.setHeader('Content-Type', 'application/json:charset=UTF-8');
+  res.setHeader('Content-type', 'text/html');
   next();
+});
+
+app.get('/header', function(req, res){
+  if (req.url === '/header'){res.write(header);}
+  res.end();
+});
+
+app.get('/footer', function(req, res){
+  if (req.url === '/footer'){res.write(footer);}
+  res.end();
 });
 
 app.get('/contatos', function(req, res){

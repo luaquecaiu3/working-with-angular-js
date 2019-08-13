@@ -35,9 +35,7 @@
 <script src="js/angular/angular-locale_pt-br.js"></script>
 <script src="js/angular/app.js"></script>
 <script src="js/angular/ListaTelefonicaCtrl.js"></script>
-
-
-<script src="js/angular/functions.js"></script>
+<script src="js/angular/angular-sanitize.js"></script>
 <!-- jQuery -->
 <script src="js/jquery-2.2.4.min.js"></script>
 <!-- ========================================================= -->
@@ -45,13 +43,13 @@
 <meta name="description" content="Descrição da página"/>
 <!-- ========================================================= -->
 </head>
-<body ng-cloak ng-app="ListaTelefonica">
-  <div ng-include="'view/header.html'"></div>
+<body ng-cloak ng-app="ListaTelefonica" ng-controller="ListaTelefonicaCtrl">
+  <div class="main header container-fluid maxwidth2 nopadding" ng-bind-html="header"></div>
 
   <div class="main content container-fluid maxwidth2 nopadding">
     <div class="row">
       <div class="col-12">
-        <div class="ListaTelefonica" ng-controller="ListaTelefonicaCtrl">
+        <div class="ListaTelefonica">
 
           <h3 ng-bind="app"></h3><!--bind = imprime valores do scope-->
           <input type="text" ng-model="criterioDeBusca" name="" class="form-control" value="" placeholder="Que nome você está buscando?">
@@ -139,7 +137,8 @@
     </div>
   </div>
 
-  <div ng-include="'view/footer.html'"></div>
+
+    <div class="main footer container-fluid maxwidth2" ng-bind-html="footer"></div>
 
 
 
