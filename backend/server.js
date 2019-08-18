@@ -1,6 +1,8 @@
 var router = require('./router');
 
-/*fs = require('fs');
+var app = router(3412);
+
+fs = require('fs');
 
 app.get('/header', function(req, res){
   if (req.url === '/header'){
@@ -17,11 +19,9 @@ app.get('/header', function(req, res){
     });
   }
 
-});*/
+});
 
-var app = router(3412);
-
-var header = '<div class="row"> <div class="col-sm-3"> <a href="../index.html">HOME</a> </div> <div class="col-sm-3"> <a href="../lista_telefonica.html">Lista Telefônica</a> </div> <div class="col-sm-3"> <a href="#">proximo</a> </div> <div class="col-sm-3"> <a href="#">link</a> </div> </div>';
+//var header = '<div class="row"> <div class="col-sm-3"> <a href="../index.html">HOME</a> </div> <div class="col-sm-3"> <a href="../lista_telefonica.html">Lista Telefônica</a> </div> <div class="col-sm-3"> <a href="#">proximo</a> </div> <div class="col-sm-3"> <a href="#">link</a> </div> </div>';
 
 var footer = 'Criado por Lua Gomes.';
 
@@ -32,9 +32,9 @@ var operadoras = [
 ]; //manter mesmo numero de linhas dele
 
 var contatos = [
-  {nome: "Lua", telefone: "1293456-7890", data: new Date(), operadora: {nome: "claro", codigo: 3 , categoria: 'celular'}, cor: {nome: "blue", codigo: 1}  },
-  {nome: "Patrick",telefone: "1293456-7890", data: new Date(), operadora: {nome: "tim", codigo: 4 , categoria: 'fixo'}, cor: {nome: "red", codigo: 3}  },
-  {nome: "Ana", telefone: "1293456-7890", data: new Date(), operadora: {nome: "oi", codigo: 1, categoria: 'celular'}, cor: {nome: "yellow", codigo: 2}  },  {nome: "Elo", telefone: "1293456-7890", data: new Date(), operadora: {nome: "tim", codigo: 4, categoria: 'fixo'}, cor: {nome: "pink", codigo: 4}  } //manter mesmo numero de linhas
+  {serial: "1qaz", nome: "Lua", telefone: "1293456-7890", data: new Date(), operadora: {nome: "claro", codigo: 3 , categoria: 'celular'}, cor: {nome: "blue", codigo: 1}  },
+  {serial: "3edc", nome: "Patrick",telefone: "1293456-7890", data: new Date(), operadora: {nome: "tim", codigo: 4 , categoria: 'fixo'}, cor: {nome: "red", codigo: 3}  },
+  {serial: "vfr4", nome: "Ana", telefone: "1293456-7890", data: new Date(), operadora: {nome: "oi", codigo: 1, categoria: 'celular'}, cor: {nome: "yellow", codigo: 2}  },  {serial: "xsw2", nome: "Elo", telefone: "1293456-7890", data: new Date(), operadora: {nome: "tim", codigo: 4, categoria: 'fixo'}, cor: {nome: "pink", codigo: 4}  } //manter mesmo numero de linhas
 ]; var cores = [  {nome: "blue", codigo: 1},  {nome: "yellow", codigo: 2},  {nome: "red", codigo: 3},  {nome: "pink", codigo: 4},  {nome: "black", codigo: 5},  {nome: "white", codigo: 6},  {nome: "gray", codigo: 7},  {nome: "purple", codigo: 8}];
 
 app.interceptor(function(req, res, next){
@@ -49,10 +49,10 @@ app.interceptor(function(req, res, next){
   next();
 });
 
-app.get('/header', function(req, res){
+/*app.get('/header', function(req, res){
   if (req.url === '/header'){res.write(header);}
   res.end();
-});
+});*/
 
 app.get('/footer', function(req, res){
   if (req.url === '/footer'){res.write(footer);}

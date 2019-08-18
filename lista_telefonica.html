@@ -49,7 +49,9 @@
 <!-- ========================================================= -->
 </head>
 <body ng-cloak ng-app="ListaTelefonica" ng-controller="ListaTelefonicaCtrl">
-  <div class="main header container-fluid maxwidth2 nopadding" ng-bind-html="header"></div>
+  <!--<div class="main header container-fluid maxwidth2 nopadding" ng-bind-html="header"></div>-->
+
+  <ng-include src="'view/header.html'"></ng-include>
 
   <div class="main content container-fluid maxwidth2 nopadding">
     <div class="row">
