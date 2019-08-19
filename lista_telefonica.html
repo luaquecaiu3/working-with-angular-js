@@ -56,12 +56,13 @@
 <body ng-cloak ng-app="ListaTelefonica" ng-controller="ListaTelefonicaCtrl">
   <div header-div></div>
 
-  <div ng-if="error" error-div>
+<div  class="main container-fluid maxwidth2 nopadding">
 
-  </div>
 
-  <div ng-if="contatos.length" class="main content container-fluid maxwidth2 nopadding">
-    <div class="row">
+  <div ng-if="error" error-div></div>
+
+  <div ng-if="contatos.length">
+    <div class="row content">
       <div class="col-12">
 
         <div class="ListaTelefonica">
@@ -153,6 +154,7 @@
         </div>
       </div>
     </div>
+  </div>
   </div>
 
 
