@@ -46,6 +46,7 @@
 <script src="js/directives/headerDirective.js"></script>
 <script src="js/directives/footerDirective.js"></script>
 <script src="js/directives/errorDirective.js"></script>
+<script src="js/directives/dateDirective.js"></script>
 <!-- jQuery -->
 <script src="js/jquery-2.2.4.min.js"></script>
 <!-- ========================================================= -->
@@ -53,16 +54,17 @@
 <meta name="description" content="Descrição da página"/>
 <!-- ========================================================= -->
 </head>
-<body ng-cloak ng-app="ListaTelefonica" ng-controller="ListaTelefonicaCtrl">
-  <div header-div></div>
+<body class="nopadding" ng-cloak ng-app="ListaTelefonica" ng-controller="ListaTelefonicaCtrl">
+  <header-div></header-div>
 
-<div  class="main container-fluid maxwidth1">
+  <error-div ng-if="error" title="Ops! Algo deu errado!">
+    {{error}} Não foi possível carregar o Banco de Dados.
+  </error-div>
 
 
-  <div ng-if="error" error-div></div>
+  <div ng-if="contatos.length" class="main container-fluid maxwidth1">
 
-  <div ng-if="contatos.length">
-    <div class="row content">
+    <div class="row content border">
       <div class="col-12">
 
         <div class="ListaTelefonica">
@@ -102,6 +104,8 @@
               <input ng-required="true" placeholder="Nome" class="form-control" type="text" name="nome" value="" ng-model="contato.nome" ng-minlength="10">
 
               <input ng-required="true" placeholder="Telefone" class="form-control" type="text" name="telefone" ng-value="{{testes.telefone}}" ng-model="contato.telefone" ng-pattern="/^\d{4,5}-\d{4}$/">
+
+              <input class="form-control" type="text" ng-model="contato.data" name="data" placeholder="Data" date>
 
               <select ng-required="true" class="form-control operadoras" name="operadoras" ng-model="contato.operadora" ng-options="'(' + (operadora.preco | currency) + ') ' + operadora.nome group by operadora.categoria for operadora in operadoras | orderBy:'nome'">
                 <option value="">Selecione uma operadora</option>
@@ -155,11 +159,10 @@
       </div>
     </div>
   </div>
-  </div>
 
 
 
-  <div footer-div></div>
+  <footer-div></footer-div>
 
 
 

@@ -14,7 +14,7 @@ angular.module("ListaTelefonica").controller("ListaTelefonicaCtrl", function($sc
   $scope.cores = [];
 
   function errorCallback(error){
-    $scope.error = "Algo deu errado!";
+    $scope.error = "ERRO:";
   };
 
   var carregarHeader = function () {
