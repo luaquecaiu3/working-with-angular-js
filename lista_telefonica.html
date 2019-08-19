@@ -41,6 +41,8 @@
 <script src="js/services/serialGeneratorService.js"></script>
 <script src="js/config/serialGeneratorConfig.js"></script>
 <script src="js/value/configValue.js"></script>
+<script src="js/filters/nameFilter.js"></script>
+<script src="js/filters/ellipsisFilter.js"></script>
 <!-- jQuery -->
 <script src="js/jquery-2.2.4.min.js"></script>
 <!-- ========================================================= -->
@@ -74,7 +76,7 @@
             <tr ng-repeat="contato in contatos | filter:{nome:criterioDeBusca} | orderBy:'nome':false | orderBy:criterioOrdem:direcaoOrdem" ng-class="{selecionado: contato.selecionado, negrito: contato.selecionado}">
             <td><input ng-model="contato.selecionado" type="checkbox" id="checkbox" name="checkbox" value=""> </td>
             <td>{{contato.serial}}</td>
-            <td>{{contato.nome}}</td>
+            <td>{{contato.nome | name | ellipsis:15}}</td>
             <td>{{contato.telefone}}</td>
             <td>{{contato.operadora.nome | lowercase}}</td>
             <td>{{contato.data | date:"EEEE',' dd 'de' MMMM 'de' yyyy '-' hh:mm"}}</td>
@@ -147,7 +149,8 @@
   </div>
 
 
-    <div class="main footer container-fluid maxwidth2" ng-bind-html="footer"></div>
+
+    <ng-include src="'view/footer.html'"></ng-include>
 
 
 
