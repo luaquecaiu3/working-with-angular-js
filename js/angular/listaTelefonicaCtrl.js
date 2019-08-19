@@ -2,12 +2,13 @@ angular.module("ListaTelefonica").controller("ListaTelefonicaCtrl", function($sc
   $scope.app = "Lista Telefonica";
   $scope.error = "";
 
-  $scope.data = new Date();
-
   $scope.header = "HEADER";
   $scope.footer = "FOOTER";
-
+  
   $scope.contatos = [];
+  $scope.contato = {
+    data: new Date()
+  };
 
   $scope.operadoras = [];
 
@@ -72,8 +73,8 @@ angular.module("ListaTelefonica").controller("ListaTelefonicaCtrl", function($sc
     function successCallback(response){
       console.log(response);
       delete $scope.contato;
-      $scope.contatoForm.$setPristine();
       carregarContatos();
+      $scope.contatoForm.$setPristine();
     };
 
     contatosAPI.saveContato(contato).then(successCallback, errorCallback);

@@ -101,6 +101,7 @@
 
           <div class="form-group">
             <form name="contatoForm">
+
               <input ng-required="true" placeholder="Nome" class="form-control" type="text" name="nome" value="" ng-model="contato.nome" ng-minlength="10">
 
               <input ng-required="true" placeholder="Telefone" class="form-control" type="text" name="telefone" ng-value="{{testes.telefone}}" ng-model="contato.telefone" ng-pattern="/^\d{4,5}-\d{4}$/">
