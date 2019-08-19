@@ -43,6 +43,7 @@
 <script src="js/value/configValue.js"></script>
 <script src="js/filters/nameFilter.js"></script>
 <script src="js/filters/ellipsisFilter.js"></script>
+<script src="js/directives/headerDirective.js"></script>
 <!-- jQuery -->
 <script src="js/jquery-2.2.4.min.js"></script>
 <!-- ========================================================= -->
@@ -53,16 +54,31 @@
 <body ng-cloak ng-app="ListaTelefonica" ng-controller="ListaTelefonicaCtrl">
   <!--<div class="main header container-fluid maxwidth2 nopadding" ng-bind-html="header"></div>-->
 
-  <ng-include src="'view/header.html'"></ng-include>
+  <!--<ng-include src="'view/header.html'"></ng-include>-->
 
-  <div class="main content container-fluid maxwidth2 nopadding">
+  <div header-div>
+
+  </div>
+
+  <div ng-if="error" class="alert alert-danger">
+    <strong>
+      Ops, aconteceu um problema!
+    </strong>
+    <div class="ui-alert-message">
+      {{error}}
+    </div>
+  </div>
+
+  <div ng-if="contatos.length" class="main content container-fluid maxwidth2 nopadding">
     <div class="row">
       <div class="col-12">
+
         <div class="ListaTelefonica">
 
-          <h3 ng-bind="app"></h3><!--bind = imprime valores do scope-->
+          <h3 ng-if="" ng-bind="app"></h3><!--bind = imprime valores do scope-->
+
           <input type="text" ng-model="criterioDeBusca" name="" class="form-control" value="" placeholder="Que nome você está buscando?">
-          <table ng-if="contatos.length" class="table table-striped">
+          <table class="table table-striped">
             <tr>
               <th></th>
               <th>Serial</th>
@@ -150,7 +166,7 @@
 
 
 
-    <ng-include src="'view/footer.html'"></ng-include>
+  <!--  <ng-include src="'view/footer.html'"></ng-include>-->
 
 
 

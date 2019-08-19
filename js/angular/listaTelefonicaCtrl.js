@@ -1,5 +1,6 @@
 angular.module("ListaTelefonica").controller("ListaTelefonicaCtrl", function($scope, $http, contatosAPI, operadorasAPI,serialGenerator){
   $scope.app = "Lista Telefonica";
+  $scope.error = "";
 
   $scope.data = new Date();
 
@@ -13,7 +14,7 @@ angular.module("ListaTelefonica").controller("ListaTelefonicaCtrl", function($sc
   $scope.cores = [];
 
   function errorCallback(error){
-    $scope.app = error +  "Error: " + error.status + " " + error.statusText;
+    $scope.error = "Algo deu errado!";
   };
 
   var carregarHeader = function () {

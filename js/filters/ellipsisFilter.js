@@ -4,7 +4,7 @@ angular.module("ListaTelefonica").filter("ellipsis", function(){
     if(input.length <= size){
       return input;
     }else{
-      var output = input.substring(0,(size || 20)) + "..."
+      var output = input.substring(0,(size || 15)) + "..."
     }
     return output;
   }
