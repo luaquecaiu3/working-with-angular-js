@@ -27,12 +27,11 @@ div{
   position: relative;
   text-align: center;
   margin: auto;
-	padding: 0.5%;
+	padding: 0.1%;
 }
 
 .main{
 	border: 1px solid green;
-	margin-top: 0.5%;
 }
 
 .header{
@@ -52,7 +51,7 @@ div{
 }
 
 .content{
-	min-height: 75%;
+	/*min-height: 75%;*/
   background-color: rgba(200,200,200);
 }
 
